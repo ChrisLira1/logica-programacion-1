@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orden de Números</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+    .output {
+    margin-top: 20px;
+    font-size: 18px;
+}
+</style>
+</head>
+<body>
+    <h1>Orden de Números</h1>
+    <p>Ingresa tres números para ordenarlos:</p>
+
+<script>
+        
+    let num1 = parseInt(prompt("Ingresa el primer número:"));
+    let num2 = parseInt(prompt("Ingresa el segundo número:"));
+    let num3 = parseInt(prompt("Ingresa el tercer número:"));
+
+        
+    function ordenarNumeros(a, b, c) {
+     let numeros = [a, b, c];
+
+            
+    const outputContainer = document.createElement('div');
+    outputContainer.classList.add('output');
+            
+            
+    if (a === b && b === c) {
+    const mensajeIguales = document.createElement('p');
+    mensajeIguales.textContent = "Los tres números son iguales.";
+    outputContainer.appendChild(mensajeIguales);
+} else {
+                
+    let mayorAMenor = [...numeros].sort((x, y) => y - x);
+                
+    let menorAMayor = [...numeros].sort((x, y) => x - y);
+
+                
+    const mayorAMenorMensaje = document.createElement('p');
+    mayorAMenorMensaje.textContent = `De mayor a menor: ${mayorAMenor.join(", ")}`;
+    outputContainer.appendChild(mayorAMenorMensaje);
+
+    const menorAMayorMensaje = document.createElement('p');
+    menorAMayorMensaje.textContent = `De menor a mayor: ${menorAMayor.join(", ")}`;
+    outputContainer.appendChild(menorAMayorMensaje);
+}
+
+            
+    document.body.appendChild(outputContainer);
+}
+
+        
+    ordenarNumeros(num1, num2, num3);
+</script>
+</body>
+</html>
